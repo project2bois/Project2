@@ -12,7 +12,10 @@ namespace DataAccess
 		public string Email { get; set; }
 		public string Gender { get; set; }
 		public DateTime DateCreated { get; set; }
-
+		
+		public Entities.Post Post { get; set; }
+		public Entities.Friendships Friends { get; set; }
+		public Entities.Comment Comments { get; set; }
 		
 	}
 }
