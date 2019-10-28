@@ -11,5 +11,6 @@ namespace DataAccess.Entities
 		public DateTime PostedDate { get; set; }
 		public string Content { get; set; }
 
+		public virtual User User { get; set; }
 	}
 }
