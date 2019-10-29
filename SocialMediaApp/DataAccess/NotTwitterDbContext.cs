@@ -17,7 +17,7 @@ namespace DataAccess
         // One DBSet per table
         public DbSet<Users> User { get; set; }
         public DbSet<Comments> Comments { get; set; }
-        public DbSet<Friendships> Friendship{ get; set; }
+        public DbSet<Friendships> Friendships { get; set; }
         public DbSet<Posts> Posts { get; set; }
 
 
@@ -57,7 +57,6 @@ namespace DataAccess
             {
                 entity.HasKey(c => c.CommentId);
 
-
                 entity.Property(c => c.CommentId)
                     .UseIdentityColumn();
 
@@ -78,9 +77,20 @@ namespace DataAccess
                    .IsRequired() // NOT NULL
                    .OnDelete(DeleteBehavior.Cascade); // ON DELETE CASCADE
                  */
-                entity.HasOne(c => c.User).WithMany(u => u.Comments);
 
-                entity.HasOne(c => c.Post).WithMany(p => p.Comments);
+                // Multiplicities for Users
+                entity.HasOne(c => c.User)
+                    .WithMany(u => u.Comments)
+                    .HasForeignKey(c=>c.UserId)
+                    .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                // Multiplicities for Posts
+                entity.HasOne(c => c.Post)
+                .WithMany(p => p.Comments)
+                .HasForeignKey(c=>c.PostId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Posts>(entity =>
