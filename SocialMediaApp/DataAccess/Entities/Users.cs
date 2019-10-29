@@ -14,13 +14,10 @@ namespace DataAccess.Entities
 		public int Gender { get; set; }
 		public DateTime DateCreated { get; set; }
 		
-		public Entities.Posts Post { get; set; }
-		public Entities.Friendships Friends { get; set; }
-<<<<<<< HEAD
-		public Entities.Comments Comments { get; set; }
-=======
-		public ICollection <Entities.Comments> Comments { get; set; }
->>>>>>> ffde8e0a818a38a1429f7265f29a5e96f0e14546
+		public Posts Post { get; set; }
+		public Friendships Friends { get; set; }
+		public ICollection <Comments> Comments { get; set; }
+
 		
 	}
 }
