@@ -25,9 +25,9 @@ namespace DataAccess
         {
             modelBuilder.Entity<Users>(entity =>
             {
-                entity.HasKey(u => u.UserId);
+                entity.HasKey(u => u.UserID);
 
-                entity.Property(u => u.UserId)
+                entity.Property(u => u.UserID)
                     .UseIdentityColumn(); // IDENTITY(1,1)
 
                 entity.Property(u => u.FirstName)
@@ -66,7 +66,7 @@ namespace DataAccess
 
                 entity.Property(c => c.UserId);
                 entity.Property(c => c.Content);
-                entity.Property(c => c.CommentedDate);
+                entity.Property(c => c.TimeSent);
 
                 //Establishing Multiplicities as shown in PokeApp codefirst example, missing .HasForeignKey() (Not sure if it is included inside NPGSQL)
                 /*
@@ -106,7 +106,7 @@ namespace DataAccess
                 entity.Property(p => p.Content)
                     .IsRequired();
 
-                entity.Property(p => p.PostedDate)
+                entity.Property(p => p.TimeSent)
                     .IsRequired();
             });
 
@@ -120,10 +120,10 @@ namespace DataAccess
                 entity.Property(f => f.User2ID)
                     .IsRequired(); 
 
-                entity.Property(f => f.DateRequestSent)
+                entity.Property(f => f.TimeRequestSent)
                     .IsRequired();
 
-                entity.Property(f => f.DateRequestConfirmed)
+                entity.Property(f => f.TimeRequestConfirmed)
                     .IsRequired();
             });
         }

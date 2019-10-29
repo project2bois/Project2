@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataAccess
+namespace DataAccess.Entities
 {
     public class Users
     {
-		public int UserId { get; set; }
+		public int UserID { get; set; }
 		public string Username { get; set; }
 		public string Password { get; set; }
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
 		public string Email { get; set; }
-		public string Gender { get; set; }
+		public int Gender { get; set; }
 		public DateTime DateCreated { get; set; }
 		
 		public Entities.Posts Post { get; set; }
