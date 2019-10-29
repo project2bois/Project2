@@ -12,7 +12,7 @@ namespace DataAccess.Entities
 		public string Content { get; set; }
 		public DateTime CommentedDate { get; set; }
 
-		public virtual Users User { get; set; }
+		public  Users User { get; set; }
 		public virtual Posts Post { get; set; }
 	}
 }

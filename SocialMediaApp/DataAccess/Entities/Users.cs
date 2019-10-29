@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DataAccess
 {
-    public class User
+    public class Users
     {
 		public int UserId { get; set; }
 		public string Username { get; set; }
@@ -13,9 +14,9 @@ namespace DataAccess
 		public string Gender { get; set; }
 		public DateTime DateCreated { get; set; }
 		
-		public Entities.Post Post { get; set; }
+		public Entities.Posts Post { get; set; }
 		public Entities.Friendships Friends { get; set; }
-		public Entities.Comment Comments { get; set; }
+		public ICollection <Entities.Comments> Comments { get; set; }
 		
 	}
 }
