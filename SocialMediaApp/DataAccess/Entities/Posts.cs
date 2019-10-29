@@ -12,5 +12,9 @@ namespace DataAccess.Entities
 		public string Content { get; set; }
 
 		public virtual Users User { get; set; }
+<<<<<<< HEAD
+=======
+        public virtual ICollection <Comments> Comments  {get; set; }
+>>>>>>> ffde8e0a818a38a1429f7265f29a5e96f0e14546
 	}
 }
