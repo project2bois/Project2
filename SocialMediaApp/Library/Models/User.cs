@@ -11,6 +11,7 @@ namespace Library.Models
         private string _firstName;
         private string _lastName;
         private int _gender;
+        private string _email;
 
         /// <summary>
         /// ID that uniquely identifies the user, 0 if unset
@@ -68,7 +69,25 @@ namespace Library.Models
         /// <summary>
         /// User's email address.
         /// </summary>
-        public string Email { get; set; }
+        public string Email 
+        { 
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                if (Regex.IsMatch(value, @"^([a-zA-Z0-9_-.]+)@(([[0-9]{1,3}" +
+                            @".[0-9]{1,3}.[0-9]{1,3}.)|(([a-zA-Z0-9-]+" +
+                            @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(]?)$" +
+                            @"^([a-zA-Z0-9_-.]+)@(([[0-9]{1,3}" +
+                            @".[0-9]{1,3}.[0-9]{1,3}.)|(([a-zA-Z0-9-]+" +
+                            @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(]?)$"))
+                {
+                    _email = value;
+                }
+            }
+        }
 
         /// <summary>
         /// User's gender.
@@ -89,7 +108,7 @@ namespace Library.Models
             {
                 if (value < 0 || value > 2)
                 {
-                    throw new ArgumentOutOfRangeException("Gender ranges 0-2",nameof(value));
+                    throw new ArgumentOutOfRangeException("Gender ranges 0-2", nameof(value));
                 }
 
                 _gender = value;
