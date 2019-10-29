@@ -79,6 +79,7 @@ namespace DataAccess
                    .OnDelete(DeleteBehavior.Cascade); // ON DELETE CASCADE
                  */
                 entity.HasOne(c => c.User).WithMany(u => u.Comments);
+
                 entity.HasOne(c => c.Post).WithMany(p => p.Comments);
             });
 
