@@ -13,4 +13,26 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: SonarCloudPrepare@1
+  displayName: SonarCloud
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'project2bois'
+    scannerMode: 'MSBuild'
+    projectKey: 'project2.123'
+    projectName: 'Project2'
 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: './SocialMediaApp/WebApp'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: './SocialMediaApp/Testing'
+    
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  displayName: Publish SonarCloud quality gate result
