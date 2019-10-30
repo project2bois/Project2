@@ -1,4 +1,5 @@
-﻿using Library.Interfaces;
+﻿using DataAccess.Entities;
+using Library.Interfaces;
 using Library.Models;
 using System;
 using System.Collections.Generic;
@@ -19,10 +20,10 @@ namespace DataAccess.Repositories
 
 		public void CreateComment(string commentText, int userId, int postId)
 		{
-			var comment = new Comment
+			var comment = new Comments
 			{
-				User = new User { UserID = userId },
-				Post = new Post { PostID = postId},
+				UserId = userId,
+				PostId = postId,
 				Content = commentText
 			};
 
