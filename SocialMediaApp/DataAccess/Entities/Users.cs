@@ -15,7 +15,7 @@ namespace DataAccess.Entities
 		public DateTime DateCreated { get; set; }
 		
 		public Posts Post { get; set; }
-		public Friendships Friends { get; set; }
+		public ICollection <Friendships> Friends { get; set; }
 		public ICollection <Comments> Comments { get; set; }
 
 		
