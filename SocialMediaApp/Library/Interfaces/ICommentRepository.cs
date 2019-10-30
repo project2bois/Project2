@@ -8,10 +8,10 @@ namespace Library.Interfaces
 {
 	public interface ICommentRepository : IDisposable
 	{
-		public void CreateComment(string commentText, int userId, int postId);
+		public void CreateComment(Comment newComment);
+        public IEnumerable<Models.Comment> GetCommentsByPostId(int postId);
+        public void UpdateComment(Comment newComment);
+        public void DeleteCommentsByPostId(int postId);
 
-		public void DeleteCommentsByPostId(int postId);
-
-		public IEnumerable<Models.Comment> CommentsByPostId(int postId);
 	}
 }

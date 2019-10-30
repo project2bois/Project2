@@ -114,11 +114,24 @@ namespace DataAccess
             {
                 //Composite key formed with User1ID and User2ID
                 entity.HasKey(f => new { f.User1ID, f.User2ID});
+
                 entity.Property(f => f.User1ID)
                     .IsRequired();
 
+                entity.HasOne(f => f.User1)
+                    .WithMany(u => u.Friends)
+                    .HasForeignKey(f => f.User1ID )
+                    .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
+
                 entity.Property(f => f.User2ID)
-                    .IsRequired(); 
+                    .IsRequired();
+
+                entity.HasOne(f => f.User2)
+                    .WithMany(u => u.Friends)
+                    .HasForeignKey(f => f.User2ID)
+                    .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
 
                 entity.Property(f => f.TimeRequestSent)
                     .IsRequired();

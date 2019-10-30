@@ -96,6 +96,8 @@ namespace DataAccess.Repositories
                 if (disposing)
                 {
                     // TODO: dispose managed state (managed objects).
+                    _context.Dispose();
+
                 }
 
                 // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
