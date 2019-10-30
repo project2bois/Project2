@@ -127,11 +127,11 @@ namespace DataAccess
                 entity.Property(f => f.User2ID)
                     .IsRequired();
 
-                entity.HasOne(f => f.User2)
-                    .WithMany(u => u.Friends)
-                    .HasForeignKey(f => f.User2ID)
-                    .IsRequired()
-                    .OnDelete(DeleteBehavior.Cascade);
+                //entity.HasOne(f => f.User2)
+                //    .WithMany(u => u.Friends)
+                //    .HasForeignKey(f => f.User2ID)
+                //    .IsRequired()
+                //    .OnDelete(DeleteBehavior.Cascade);
 
                 entity.Property(f => f.TimeRequestSent)
                     .IsRequired();
