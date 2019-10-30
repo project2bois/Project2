@@ -15,7 +15,7 @@ namespace DataAccess.Repositories
 
 		public CommentRepository(NotTwitterDbContext db)
 		{
-			_context = db;
+            _context = db ?? throw new NullReferenceException();
 		}
 
 		public void CreateComment(Comment newComment)
