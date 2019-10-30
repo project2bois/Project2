@@ -22,13 +22,9 @@ namespace DataAccess.Repositories
 		{
 			var comment = new Comments
 			{
-<<<<<<< HEAD
+
 				UserId = userId,
 				PostId = postId,
-=======
-                UserId = userId,
-                PostId = postId,
->>>>>>> fb20d49dec85fb2de5a6121db13fba8bd484470e
 				Content = commentText
 			};
 

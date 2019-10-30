@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Library.Interfaces
 {
-	class IPostRepository
+	class IFriendRequestRepository
 	{
 	}
 }
